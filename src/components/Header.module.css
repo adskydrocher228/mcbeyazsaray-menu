@@ -1,0 +1,169 @@
+.header {
+  background: var(--cream-light);
+  border-bottom: 1px solid var(--cream-dark);
+  padding: clamp(20px, 5vw, 48px) clamp(16px, 4vw, 40px) clamp(16px, 3vw, 32px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(176,140,63,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176,140,63,0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 2vw, 14px);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Crown logo ── */
+.logoMark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--gold);
+  gap: 0;
+}
+
+.crownSvg {
+  width: clamp(44px, 9vw, 68px);
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(176,140,63,0.28));
+}
+
+.monogram {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.8vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-top: -6px;
+  line-height: 1;
+}
+
+/* ── Titles ── */
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ornamentLine {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ornamentChar {
+  color: var(--gold-light);
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
+}
+
+.yearLabel {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+  letter-spacing: 0.12em;
+  color: var(--ink-light);
+}
+
+.hotelName {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 8vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink-dark);
+  line-height: 1.05;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.hotelName::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.8rem, 2vw, 1.05rem);
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+}
+
+/* ── Search ── */
+.searchWrapper {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 4px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 50px;
+  padding: 9px 18px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.searchBox:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+.searchIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--ink-faint);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: var(--ink-dark);
+  min-width: 0;
+}
+.searchInput::placeholder { color: var(--ink-faint); }
+
+/* Remove browser default search clear button */
+.searchInput::-webkit-search-cancel-button { display: none; }
+
+.searchClear {
+  background: none;
+  border: none;
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+  transition: color 150ms, background 150ms;
+  line-height: 1;
+}
+.searchClear:hover { color: var(--ink-dark); background: var(--cream-mid); }

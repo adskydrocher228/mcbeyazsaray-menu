@@ -1,0 +1,292 @@
+/* ── OVERLAY ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 21, 16, 0.72);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: overlayIn 0.22s ease;
+}
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@media (min-width: 600px) {
+  .overlay { align-items: center; padding: 20px; }
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--cream-light);
+  width: 100%;
+  max-width: 540px;
+  max-height: 92dvh;
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 40px);
+  border-radius: 24px 24px 0 0;
+  position: relative;
+  animation: slideUp 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--cream-dark);
+  border-bottom: none;
+}
+@media (min-width: 600px) {
+  .card {
+    border-radius: 20px;
+    border: 1px solid var(--cream-dark);
+    box-shadow: 0 28px 70px rgba(26, 21, 16, 0.32);
+  }
+}
+@keyframes slideUp {
+  from { transform: translateY(56px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── CLOSE BUTTON ── */
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--cream-dark);
+  background: var(--cream-mid);
+  color: var(--ink-light);
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 160ms, color 160ms, border-color 160ms, transform 160ms;
+}
+.closeBtn:hover {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+  transform: rotate(90deg);
+}
+
+/* ── TOP SECTION ── */
+.topSection {
+  margin-bottom: 4px;
+  padding-right: 32px; /* space for close btn */
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  background: var(--gold-pale);
+  border: 1px solid rgba(176, 140, 63, 0.28);
+  border-radius: 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 5.5vw, 2.15rem);
+  font-weight: 700;
+  color: var(--ink-dark);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.variantTag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--cream-mid);
+  border-radius: 12px;
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+/* ── DESCRIPTION BLOCK ── */
+.descriptionBlock {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, var(--gold-pale) 0%, var(--cream-light) 100%);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  margin: 14px 0 0;
+}
+
+.quoteIcon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--gold-light);
+  margin-top: 1px;
+  opacity: 0.7;
+}
+
+.description {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2.8vw, 1.12rem);
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+/* ── ORNAMENT DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: var(--cream-dark);
+}
+.dividerChar {
+  color: var(--gold-light);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── INGREDIENTS SECTION ── */
+.ingredientsSection {
+  margin-bottom: 18px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+.sectionHeader svg {
+  width: 15px;
+  height: 15px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 600;
+}
+
+/* ── CHIPS GRID ── */
+.chipsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 30px;
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  font-weight: 450;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  cursor: default;
+  animation: chipIn 0.3s ease both;
+  transition: border-color 160ms, background 160ms, color 160ms, transform 160ms;
+}
+.chip:hover {
+  border-color: var(--gold-light);
+  background: var(--gold-pale);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+@keyframes chipIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── SERVICE NOTE ── */
+.serviceNote {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--cream-mid);
+  border: 1px solid var(--cream-dark);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.serviceNoteIcon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.serviceNoteLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.serviceNoteText {
+  font-size: 0.88rem;
+  color: var(--ink-light);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* ── PRICE FOOTER ── */
+.priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--cream-dark);
+  padding-top: 18px;
+  margin-top: 20px;
+}
+
+.priceMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priceLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 600;
+}
+
+.priceSeason {
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  opacity: 0.65;
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
